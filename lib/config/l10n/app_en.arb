@@ -1,0 +1,10 @@
+{
+  "helloWorld": "Hello World!",
+  "email": "email",
+  "password": "password",
+  "emailErrMessage": "Please enter a valid email",
+  "passErrMessage": "The password must be 8 characters length and contain small and capital Latin letters",
+  "loginSuccessful": "Login successful",
+  "tryAgain": "Try again",
+  "login": "Login"
+}
