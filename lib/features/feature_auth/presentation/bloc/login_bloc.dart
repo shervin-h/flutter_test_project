@@ -20,7 +20,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
     on<LoginButtonPressedEvent>((event, emit) async {
       emit(LoginLoadingState());
-      sleep(const Duration(seconds: 3));
+      await Future.delayed(const Duration(seconds: 3));
       DataState<UserEntity> dataState = await CheckEmailUseCase()(event.email);
       if (dataState is DataSuccess && dataState.data != null) {
         emit(LoginCompletedState());
@@ -29,21 +29,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       } else {
         emit(LoginInitial());
       }
-
-      // await Future.delayed(
-      //   const Duration(seconds: 3),
-      //   () async {
-      //     await CheckEmailUseCase()(event.email).then((DataState<UserEntity> dataState) {
-      //       if (dataState is DataSuccess && dataState.data != null) {
-      //         emit(LoginCompletedState());
-      //       } else if (dataState is DataFailed && dataState.error != null) {
-      //         emit(LoginErrorState(dataState.error!));
-      //       } else {
-      //         emit(LoginInitial());
-      //       }
-      //     });
-      //   }
-      // );
     });
   }
 }

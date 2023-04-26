@@ -71,41 +71,43 @@ class AppTheme {
 
   // font family
   static const String fontFamilyName = 'Vazir';
+  static const Color lightFontColor = Color(0xFF2E2E2E);
+  static const Color darkFontColor = Colors.white;
 
   // text theme
   static const TextTheme lightTextTheme = TextTheme(
-    headlineLarge: TextStyle(fontFamily: fontFamilyName),
-    headlineMedium: TextStyle(fontFamily: fontFamilyName),
-    headlineSmall: TextStyle(fontFamily: fontFamilyName),
-    displayLarge: TextStyle(fontFamily: fontFamilyName),
-    displayMedium: TextStyle(fontFamily: fontFamilyName),
-    displaySmall: TextStyle(fontFamily: fontFamilyName),
-    titleLarge: TextStyle(fontFamily: fontFamilyName),
-    titleMedium: TextStyle(fontFamily: fontFamilyName),
-    titleSmall: TextStyle(fontFamily: fontFamilyName),
-    bodyLarge: TextStyle(fontFamily: fontFamilyName),
-    bodyMedium: TextStyle(fontFamily: fontFamilyName),
-    bodySmall: TextStyle(fontFamily: fontFamilyName),
-    labelLarge: TextStyle(fontFamily: fontFamilyName),
-    labelMedium: TextStyle(fontFamily: fontFamilyName),
-    labelSmall: TextStyle(fontFamily: fontFamilyName),
+    headlineLarge: TextStyle(fontFamily: fontFamilyName, color: lightFontColor),
+    headlineMedium: TextStyle(fontFamily: fontFamilyName, color: lightFontColor),
+    headlineSmall: TextStyle(fontFamily: fontFamilyName, color: lightFontColor),
+    displayLarge: TextStyle(fontFamily: fontFamilyName, color: lightFontColor),
+    displayMedium: TextStyle(fontFamily: fontFamilyName, color: lightFontColor),
+    displaySmall: TextStyle(fontFamily: fontFamilyName, color: lightFontColor),
+    titleLarge: TextStyle(fontFamily: fontFamilyName, color: lightFontColor),
+    titleMedium: TextStyle(fontFamily: fontFamilyName, color: lightFontColor),
+    titleSmall: TextStyle(fontFamily: fontFamilyName, color: lightFontColor),
+    bodyLarge: TextStyle(fontFamily: fontFamilyName, color: lightFontColor),
+    bodyMedium: TextStyle(fontFamily: fontFamilyName, color: lightFontColor),
+    bodySmall: TextStyle(fontFamily: fontFamilyName, color: lightFontColor),
+    labelLarge: TextStyle(fontFamily: fontFamilyName, color: lightFontColor),
+    labelMedium: TextStyle(fontFamily: fontFamilyName, color: lightFontColor),
+    labelSmall: TextStyle(fontFamily: fontFamilyName, color: lightFontColor),
   );
   static const TextTheme darkTextTheme = TextTheme(
-    headlineLarge: TextStyle(fontFamily: fontFamilyName),
-    headlineMedium: TextStyle(fontFamily: fontFamilyName),
-    headlineSmall: TextStyle(fontFamily: fontFamilyName),
-    displayLarge: TextStyle(fontFamily: fontFamilyName),
-    displayMedium: TextStyle(fontFamily: fontFamilyName),
-    displaySmall: TextStyle(fontFamily: fontFamilyName),
-    titleLarge: TextStyle(fontFamily: fontFamilyName),
-    titleMedium: TextStyle(fontFamily: fontFamilyName),
-    titleSmall: TextStyle(fontFamily: fontFamilyName),
-    bodyLarge: TextStyle(fontFamily: fontFamilyName),
-    bodyMedium: TextStyle(fontFamily: fontFamilyName),
-    bodySmall: TextStyle(fontFamily: fontFamilyName),
-    labelLarge: TextStyle(fontFamily: fontFamilyName),
-    labelMedium: TextStyle(fontFamily: fontFamilyName),
-    labelSmall: TextStyle(fontFamily: fontFamilyName),
+    headlineLarge: TextStyle(fontFamily: fontFamilyName, color: darkFontColor),
+    headlineMedium: TextStyle(fontFamily: fontFamilyName, color: darkFontColor),
+    headlineSmall: TextStyle(fontFamily: fontFamilyName, color: darkFontColor),
+    displayLarge: TextStyle(fontFamily: fontFamilyName, color: darkFontColor),
+    displayMedium: TextStyle(fontFamily: fontFamilyName, color: darkFontColor),
+    displaySmall: TextStyle(fontFamily: fontFamilyName, color: darkFontColor),
+    titleLarge: TextStyle(fontFamily: fontFamilyName, color: darkFontColor),
+    titleMedium: TextStyle(fontFamily: fontFamilyName, color: darkFontColor),
+    titleSmall: TextStyle(fontFamily: fontFamilyName, color: darkFontColor),
+    bodyLarge: TextStyle(fontFamily: fontFamilyName, color: darkFontColor),
+    bodyMedium: TextStyle(fontFamily: fontFamilyName, color: darkFontColor),
+    bodySmall: TextStyle(fontFamily: fontFamilyName, color: darkFontColor),
+    labelLarge: TextStyle(fontFamily: fontFamilyName, color: darkFontColor),
+    labelMedium: TextStyle(fontFamily: fontFamilyName, color: darkFontColor),
+    labelSmall: TextStyle(fontFamily: fontFamilyName, color: darkFontColor),
   );
 
   // theme data

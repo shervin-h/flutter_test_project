@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         Locale('fa'), // Farsi
       ],
       locale: const Locale('en'),
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       theme: AppTheme.lightThemeData,
       darkTheme: AppTheme.darkThemeData,
       home: const LoginScreen(),
