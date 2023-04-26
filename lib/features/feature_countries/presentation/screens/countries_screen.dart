@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -6,8 +5,8 @@ import 'package:flutter_test_project/core/widgets/custom_app_bar.dart';
 import 'package:flutter_test_project/core/widgets/shared_widgets.dart';
 import 'package:flutter_test_project/features/feature_countries/domain/entities/country_entity.dart';
 import 'package:flutter_test_project/features/feature_countries/presentation/bloc/countries_bloc.dart';
-
-import '../../data/repositories/country_repository_impl.dart';
+import 'package:flutter_test_project/features/feature_countries/presentation/widgets/country_item_tablet_widget.dart';
+import 'package:flutter_test_project/features/feature_countries/presentation/widgets/country_item_widget.dart';
 
 
 class CountriesScreen extends StatefulWidget {
@@ -20,11 +19,9 @@ class CountriesScreen extends StatefulWidget {
 }
 
 class _CountriesScreenState extends State<CountriesScreen> {
-
   @override
   void initState() {
     super.initState();
-
     BlocProvider.of<CountriesBloc>(context).add(LoadAllCountriesEvent());
   }
 
@@ -45,11 +42,14 @@ class _CountriesScreenState extends State<CountriesScreen> {
             if (state is LoadingAllCountriesState) {
               return const LottieWidget.loading();
             } else if (state is LoadAllCountriesCompletedState) {
-              return ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                itemCount: state.countries.length,
-                itemBuilder: (context, index) {
-                  return CountryItemWidget(country: state.countries[index]);
+              final countries = state.countries;
+              return OrientationBuilder(
+                builder: (context, orientation) {
+                  if (orientation == Orientation.portrait) {
+                    return CountriesListWidget(countries: countries);
+                  } else {
+                    return CountriesListTabletWidget(countries: countries);
+                  }
                 },
               );
             } else if (State is LoadAllCountriesErrorState) {
@@ -64,45 +64,42 @@ class _CountriesScreenState extends State<CountriesScreen> {
   }
 }
 
-class CountryItemWidget extends StatelessWidget {
-  const CountryItemWidget({required this.country, Key? key}) : super(key: key);
 
-  final CountryEntity country;
+class CountriesListTabletWidget extends StatelessWidget {
+  const CountriesListTabletWidget({required this.countries, Key? key}) : super(key: key);
+
+  final List<CountryEntity> countries;
 
   @override
   Widget build(BuildContext context) {
-
-    final themeData = Theme.of(context);
-
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(4),
+    return GridView.builder(
+      padding: const EdgeInsets.all(8),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 16,
+        mainAxisSpacing: 16,
+        childAspectRatio: 5 / 2,
       ),
-      child: ListTile(
-        leading: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Container(
-            width: 48,
-            height: 48,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-            ),
-            child: SvgPicture.network(
-              country.flag,
-              width: 48,
-              height: 48,
-              fit: BoxFit.cover,
-              placeholderBuilder: (context) {
-                return const Icon(CupertinoIcons.flag);
-              },
-            ),
-          ),
-        ),
-        title: Text(country.name, maxLines: 1, overflow: TextOverflow.ellipsis,),
-        subtitle: Text(country.capital, maxLines: 1, overflow: TextOverflow.ellipsis,),
-      ),
+      itemBuilder: (context, index) {
+        return CountryItemTabletWidget(country: countries[index]);
+      },
     );
   }
 }
 
+class CountriesListWidget extends StatelessWidget {
+  const CountriesListWidget({required this.countries, Key? key}) : super(key: key);
+
+  final List<CountryEntity> countries;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      physics: const BouncingScrollPhysics(),
+      itemCount: countries.length,
+      itemBuilder: (context, index) {
+        return CountryItemWidget(country: countries[index]);
+      },
+    );
+  }
+}
