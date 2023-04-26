@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 
+import 'package:flutter_test_project/config/app_settings/app_settings_cubit.dart';
 import 'package:flutter_test_project/features/feature_auth/data/repositories/user_repository_impl.dart';
 import 'package:flutter_test_project/features/feature_auth/domain/repositories/user_repository.dart';
 import 'package:flutter_test_project/features/feature_countries/data/repositories/country_repository_impl.dart';
@@ -41,6 +42,7 @@ void setup() {
   getIt.registerSingleton<CountryRepository>(CountryRepositoryImpl());
 
   /// bloc
+  getIt.registerSingleton<AppSettingsCubit>(AppSettingsCubit());
   getIt.registerSingleton<SplashBloc>(SplashBloc());
   getIt.registerSingleton<LoginBloc>(LoginBloc());
   getIt.registerSingleton<CountriesBloc>(CountriesBloc());

@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_test_project/config/app_settings/app_settings_cubit.dart';
 import 'package:flutter_test_project/core/utils/password_validation_helper.dart';
+import 'package:flutter_test_project/core/widgets/custom_app_bar.dart';
 import 'package:flutter_test_project/features/feature_auth/data/repositories/user_repository_impl.dart';
 import 'package:flutter_test_project/features/feature_auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:flutter_test_project/features/feature_countries/presentation/screens/countries_screen.dart';
@@ -53,6 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final localization = AppLocalizations.of(context)!;
 
     return Scaffold(
+      appBar: const CustomAppBar(),
       body: SafeArea(
         child: SizedBox(
           width: screenWidth,
@@ -85,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                                 CustomTextFormField(
                                   validator: (value) {
-                                    if (value != null && !EmailValidator.validate(value)) {
+                                    if (value != null && !EmailValidator.validate(value.trim())) {
                                       return localization.emailErrMessage;
                                     }
                                     return null;
@@ -99,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                                 CustomTextFormField(
                                   validator: (value) {
-                                    if (value != null && value.trim().length < 8 && !isPasswordValid(value, 8)) {
+                                    if (value != null && value.trim().length < 8 && !isPasswordValid(value.trim(), 8)) {
                                       return localization.passErrMessage;
                                     }
                                     return null;

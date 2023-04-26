@@ -30,6 +30,7 @@ class CustomTextFormField extends StatelessWidget {
     return Material(
       elevation: 6,
       color: themeData.colorScheme.primary,
+      // color: Colors.cyan,
       borderRadius: BorderRadius.circular(radius ?? 16),
       child: TextFormField(
         validator: validator,
@@ -47,6 +48,10 @@ class CustomTextFormField extends StatelessWidget {
           hintStyle: hintStyle ?? TextStyle(
             fontFamily: 'Vazir',
             color: Colors.grey.shade500,
+            fontWeight: FontWeight.bold,
+          ),
+          errorStyle: TextStyle(
+            color: Colors.black54,
             fontWeight: FontWeight.bold,
           ),
           contentPadding: const EdgeInsets.all(8),

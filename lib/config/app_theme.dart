@@ -114,10 +114,18 @@ class AppTheme {
   static ThemeData lightThemeData = ThemeData.light(useMaterial3: true).copyWith(
     colorScheme: lightColorScheme,
     textTheme: lightTextTheme,
+    appBarTheme: const AppBarTheme(
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+    )
   );
 
   static ThemeData darkThemeData = ThemeData.dark(useMaterial3: true).copyWith(
     colorScheme: darkColorScheme,
-    textTheme: darkTextTheme
+    textTheme: darkTextTheme,
+      appBarTheme: const AppBarTheme(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      )
   );
 }

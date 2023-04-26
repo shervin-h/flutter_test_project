@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_test_project/core/widgets/custom_app_bar.dart';
 import 'package:flutter_test_project/core/widgets/shared_widgets.dart';
 import 'package:flutter_test_project/features/feature_countries/domain/entities/country_entity.dart';
 import 'package:flutter_test_project/features/feature_countries/presentation/bloc/countries_bloc.dart';
@@ -31,6 +32,7 @@ class _CountriesScreenState extends State<CountriesScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      appBar: const CustomAppBar(),
       body: SafeArea(
         child: BlocBuilder<CountriesBloc, CountriesState>(
           buildWhen: (previous, current) {

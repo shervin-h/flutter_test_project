@@ -1,10 +1,13 @@
 {
   "helloWorld": "سلام دنیا!",
+  "appName": "پروژه تستی - صمیم",
   "email": "ایمیل",
   "password": "رمز عبور",
   "emailErrMessage": "لطفاً ایمیل معتبر وارد کنید",
   "passErrMessage": "رمز عبور بایستی 8 کارکتر باشد و شامل حروف بزرگ و کوچک لاتین باشد",
   "loginSuccessful": "ورود موفق",
   "tryAgain": "تلاش دوباره",
-  "login": "ورود"
+  "login": "ورود",
+  "english": "انگلیسی",
+  "farsi": "فارسی"
 }
