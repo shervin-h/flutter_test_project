@@ -30,9 +30,23 @@ class LottieWidget extends StatelessWidget {
   })  : lottieWidgetType = LottieWidgetType.error,
         _asset = 'assets/lottie/error.json';
 
+  const LottieWidget.noPermission({
+    super.key,
+    this.width,
+    this.height,
+  })  : lottieWidgetType = LottieWidgetType.error,
+        _asset = 'assets/lottie/no_permission.json';
+
+  const LottieWidget.success({
+    super.key,
+    this.width,
+    this.height,
+  })  : lottieWidgetType = LottieWidgetType.error,
+        _asset = 'assets/lottie/success_nick.json';
+
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
+    // final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
 
     return Center(
