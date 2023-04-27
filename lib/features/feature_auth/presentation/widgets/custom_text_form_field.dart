@@ -30,7 +30,6 @@ class CustomTextFormField extends StatelessWidget {
     return Material(
       elevation: 6,
       color: themeData.colorScheme.primary,
-      // color: Colors.cyan,
       borderRadius: BorderRadius.circular(radius ?? 16),
       child: TextFormField(
         validator: validator,

@@ -7,49 +7,50 @@ class LottieWidget extends StatelessWidget {
   final double? width;
   final double? height;
   final LottieWidgetType? lottieWidgetType;
-  final String _asset;
+  final String? asset;
 
   const LottieWidget({
     this.width,
     this.height,
     this.lottieWidgetType,
+    this.asset,
     super.key,
-  }) : _asset = 'assets/lottie/search.json';
+  });
 
   const LottieWidget.loading({
     super.key,
     this.width,
     this.height,
   })  : lottieWidgetType = LottieWidgetType.loading,
-        _asset = 'assets/lottie/search.json';
+        asset = 'assets/lottie/search.json';
 
   const LottieWidget.error({
     super.key,
     this.width,
     this.height,
   })  : lottieWidgetType = LottieWidgetType.error,
-        _asset = 'assets/lottie/error.json';
+        asset = 'assets/lottie/error.json';
 
   const LottieWidget.noPermission({
     super.key,
     this.width,
     this.height,
   })  : lottieWidgetType = LottieWidgetType.noPermission,
-        _asset = 'assets/lottie/no_permission.json';
+        asset = 'assets/lottie/no_permission.json';
 
   const LottieWidget.success({
     super.key,
     this.width,
     this.height,
   })  : lottieWidgetType = LottieWidgetType.success,
-        _asset = 'assets/lottie/success_nick.json';
+        asset = 'assets/lottie/success_nick.json';
 
   const LottieWidget.man({
     super.key,
     this.width,
     this.height,
   })  : lottieWidgetType = LottieWidgetType.man,
-        _asset = 'assets/lottie/man.json';
+        asset = 'assets/lottie/man.json';
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +59,7 @@ class LottieWidget extends StatelessWidget {
 
     return Center(
       child: Lottie.asset(
-        _asset,
+        asset ?? 'assets/lottie/search.json',
         height: height ?? screenHeight * 0.2,
         fit: BoxFit.fitHeight,
       ),

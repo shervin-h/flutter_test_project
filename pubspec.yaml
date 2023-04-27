@@ -46,6 +46,7 @@ dependencies:
   mockito: ^5.4.0
   lottie: ^2.3.2
   flutter_svg: ^2.0.5
+  flutter_staggered_animations: ^1.1.1
 
 dev_dependencies:
   flutter_test:

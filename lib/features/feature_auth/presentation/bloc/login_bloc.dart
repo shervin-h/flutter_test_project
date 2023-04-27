@@ -24,8 +24,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       DataState<UserEntity> dataState = await CheckEmailUseCase()(event.email);
       if (dataState is DataSuccess && dataState.data != null) {
         emit(LoginCompletedState());
-      } else if (dataState is DataFailed && dataState.error != null) {
-        emit(LoginErrorState(dataState.error!));
+      } else if (dataState is DataFailed) {
+        emit(LoginErrorState(dataState.error ?? 'خطا'));
       } else {
         emit(LoginInitial());
       }

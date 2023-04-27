@@ -20,7 +20,7 @@ class CheckEmailUseCase extends OneParamUseCase<UserEntity, String> {
           return const DataFailed('کاربر اجازه ورود ندارد');
         }
       }
-      return const DataFailed('خطا');
+      return const DataFailed('کاربر ثبت نشده است');
     } else {
       return const DataFailed('خطا');
     }
