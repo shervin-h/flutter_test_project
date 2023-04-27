@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
       },
       builder: (context, state) {
         return MaterialApp(
-          title: 'Flutter Demo',
+          title: 'Shervin Hassanzadeh - Samim',
           debugShowCheckedModeBanner: false,
           localizationsDelegates: const [
             AppLocalizations.delegate,

@@ -7,6 +7,7 @@ import 'package:flutter_test_project/features/feature_countries/domain/entities/
 import 'package:flutter_test_project/features/feature_countries/presentation/bloc/countries_bloc.dart';
 import 'package:flutter_test_project/features/feature_countries/presentation/widgets/country_item_tablet_widget.dart';
 import 'package:flutter_test_project/features/feature_countries/presentation/widgets/country_item_widget.dart';
+import 'package:flutter_test_project/features/feature_countries/presentation/widgets/country_screens.dart';
 
 
 class CountriesScreen extends StatefulWidget {
@@ -64,42 +65,3 @@ class _CountriesScreenState extends State<CountriesScreen> {
   }
 }
 
-
-class CountriesListTabletWidget extends StatelessWidget {
-  const CountriesListTabletWidget({required this.countries, Key? key}) : super(key: key);
-
-  final List<CountryEntity> countries;
-
-  @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-      padding: const EdgeInsets.all(8),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 16,
-        mainAxisSpacing: 16,
-        childAspectRatio: 5 / 2,
-      ),
-      itemBuilder: (context, index) {
-        return CountryItemTabletWidget(country: countries[index]);
-      },
-    );
-  }
-}
-
-class CountriesListWidget extends StatelessWidget {
-  const CountriesListWidget({required this.countries, Key? key}) : super(key: key);
-
-  final List<CountryEntity> countries;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: const BouncingScrollPhysics(),
-      itemCount: countries.length,
-      itemBuilder: (context, index) {
-        return CountryItemWidget(country: countries[index]);
-      },
-    );
-  }
-}
