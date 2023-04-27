@@ -1,16 +1,13 @@
 
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_test_project/core/resources/data_state.dart';
 import 'package:flutter_test_project/features/feature_auth/data/repositories/user_repository_impl.dart';
-import 'package:flutter_test_project/features/feature_auth/domain/entities/user_entity.dart';
 import 'package:flutter_test_project/features/feature_auth/domain/repositories/user_repository.dart';
 import 'package:flutter_test_project/features/feature_auth/domain/usecases/check_email_use_case.dart';
 import 'package:flutter_test_project/features/feature_auth/presentation/bloc/login_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-
 import 'login_bloc_test.mocks.dart';
 
 @GenerateMocks([CheckEmailUseCase])
@@ -44,7 +41,7 @@ void main() {
           },
           expect: () => <LoginState>[
             LoginLoadingState(),
-            LoginErrorState('خطا'),
+            LoginErrorState('کاربر ثبت نام نشده است'),
           ]
       );
 

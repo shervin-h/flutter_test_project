@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter_test_project/core/resources/data_state.dart';
 import 'package:flutter_test_project/core/usecases/is_online_usecase.dart';
 import 'package:meta/meta.dart';
@@ -16,15 +17,14 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
 
     on<SplashStartedEvent>((event, emit) async {
       emit(SplashLoadingState());
-      await IsOnlineUseCase()().then((DataState<bool> dataState) {
-        if (dataState is DataSuccess) {
-          emit(SplashCompletedState());
-        } else if (dataState is DataFailed) {
-          emit(SplashErrorState(dataState.error ?? 'خطا'));
-        } else {
-          emit(SplashInitial());
-        }
-      });
+      DataState<bool> dataState = await IsOnlineUseCase()();
+      if (dataState is DataSuccess) {
+        emit(SplashCompletedState());
+      } else if (dataState is DataFailed) {
+        emit(SplashErrorState(dataState.error ?? 'خطا'));
+      } else {
+        emit(SplashInitial());
+      }
     });
   }
 }
