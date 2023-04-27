@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:lottie/lottie.dart';
 
-enum LottieWidgetType { loading, error }
+enum LottieWidgetType { loading, error, noPermission, success, man }
 
 class LottieWidget extends StatelessWidget {
   final double? width;
@@ -34,15 +34,22 @@ class LottieWidget extends StatelessWidget {
     super.key,
     this.width,
     this.height,
-  })  : lottieWidgetType = LottieWidgetType.error,
+  })  : lottieWidgetType = LottieWidgetType.noPermission,
         _asset = 'assets/lottie/no_permission.json';
 
   const LottieWidget.success({
     super.key,
     this.width,
     this.height,
-  })  : lottieWidgetType = LottieWidgetType.error,
+  })  : lottieWidgetType = LottieWidgetType.success,
         _asset = 'assets/lottie/success_nick.json';
+
+  const LottieWidget.man({
+    super.key,
+    this.width,
+    this.height,
+  })  : lottieWidgetType = LottieWidgetType.man,
+        _asset = 'assets/lottie/man.json';
 
   @override
   Widget build(BuildContext context) {

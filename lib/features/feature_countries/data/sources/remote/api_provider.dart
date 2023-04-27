@@ -1,5 +1,4 @@
 import 'package:flutter_test_project/features/feature_countries/domain/entities/country_entity.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 

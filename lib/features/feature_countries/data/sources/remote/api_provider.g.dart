@@ -13,7 +13,8 @@ class _ApiClient implements ApiClient {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://raw.githubusercontent.com/esmaeil-ahmadipour/';
+    baseUrl ??=
+        'https://raw.githubusercontent.com/esmaeil-ahmadipour/restcountries/main/json/';
   }
 
   final Dio _dio;
@@ -34,7 +35,7 @@ class _ApiClient implements ApiClient {
     )
             .compose(
               _dio.options,
-              'restcountries/main/json/countriesV2.json',
+              'countriesV2.json',
               queryParameters: queryParameters,
               data: _data,
             )

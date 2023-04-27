@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter_test_project/core/resources/data_state.dart';
 import 'package:flutter_test_project/features/feature_countries/domain/usecases/fetch_countries_from_api_use_case.dart';
 import 'package:meta/meta.dart';

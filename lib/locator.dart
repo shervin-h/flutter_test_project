@@ -20,7 +20,6 @@ final getIt = GetIt.instance;
 void setup() {
 
   /// remote api or local data source
-  // final dio = Dio(BaseOptions(contentType: "application/json"));
   final dio = Dio(BaseOptions(contentType: "application/json"))
     ..interceptors.add(
       InterceptorsWrapper(

@@ -15,13 +15,13 @@ import 'login_bloc_test.mocks.dart';
 
 @GenerateMocks([CheckEmailUseCase])
 void main() {
-  TestWidgetsFlutterBinding.ensureInitialized();
-  final getIt = GetIt.instance;
-  getIt.registerSingleton<UserRepository>(UserRepositoryImpl());
 
   group(
     'login button pressed event test',
     () {
+      TestWidgetsFlutterBinding.ensureInitialized();
+      final getIt = GetIt.instance;
+      getIt.registerSingleton<UserRepository>(UserRepositoryImpl());
       // when(MockCheckEmailUseCase().call(any)).thenAnswer((_) async {return Future.value(DataSuccess(UserEntity(userName: '', email: '', state: '')));});
 
       blocTest(
